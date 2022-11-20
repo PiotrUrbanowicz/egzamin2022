@@ -16,7 +16,7 @@ public class Tree {
 
     public void add(int date){
         if(value==0){
-            this.value=date;
+            value=date;
         }else if (value>date){
             if(nodeLeft!=null){
                 nodeLeft.add(date);
@@ -25,31 +25,32 @@ public class Tree {
                 nodeLeft.add(date);
             }
         } else if (value<=date) {
-            if(nodeLeft!=null){
+            if(nodeRight!=null){
+                nodeRight.add(date);
+            }else{
+                nodeRight=new Node(0);
                 nodeRight.add(date);
             }
         }
+
     }
 
     public void contains(int date){
 
     }
 
-    public int max(int date){
-        boolean flag=true;
-        Node thisNode=getNodeRight();
-        Node currentNode=getNodeRight();
+    public Tree max(){
+        Tree thisNode=this;
+        Tree currentNode=this;
 
-        while(flag) {
-
-            if(currentNode!=null){
+        while(currentNode!=null) {
                 currentNode=nodeRight.getNodeRight();
-            }else {
-                flag=false;
+            if(currentNode==null){
+                return thisNode;
             }
             thisNode=currentNode;
         }
-        return thisNode.getValue();
+        return null;
     }
 
 
