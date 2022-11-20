@@ -41,15 +41,18 @@ public class Tree {
 
     public Tree max(){
         Tree thisNode=this;
-        Tree currentNode=this;
-
-        while(currentNode!=null) {
-                currentNode=nodeRight.getNodeRight();
-            if(currentNode==null){
+        Tree currentNode=nodeRight;
+boolean flag=true;
+        while(flag) {
+            if(currentNode!=null) {
+                if(currentNode.getValue()!=0) {
+                    thisNode = currentNode;
+                    currentNode = nodeRight.getNodeRight();
+                }
+            }else if(currentNode==null){
                 return thisNode;
             }
-            thisNode=currentNode;
-        }
+            }
         return null;
     }
 

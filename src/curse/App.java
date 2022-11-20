@@ -7,7 +7,7 @@ public class App {
     public static void main(String[] args) {
 
 
-        int[] tab=new int[]{1,4};
+        int[] tab=new int[]{1,4,5,7,9};
 
 
         Tree tree=new Tree(0);
